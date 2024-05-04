@@ -17,15 +17,15 @@ cloudContainer.addEventListener('mouseout', () => {
 });
 
 
-const house = document.getElementById('house');
+// const house = document.getElementById('house');
 
-house.addEventListener('click', function() {
-    const currentOpacity = parseFloat(house.style.opacity);
-    const clickSound = new Audio('assets/light out.mp3');
-    clickSound.play();    
-    if (currentOpacity === 1) {
-        house.style.opacity = '0';
-    } else {
-        house.style.opacity = '1';
-    }
-});
+// house.addEventListener('click', function() {
+//     const currentOpacity = parseFloat(house.style.opacity);
+//     const clickSound = new Audio('assets/light out.mp3');
+//     clickSound.play();    
+//     if (currentOpacity === 1) {
+//         house.style.opacity = '0';
+//     } else {
+//         house.style.opacity = '1';
+//     }
+// });

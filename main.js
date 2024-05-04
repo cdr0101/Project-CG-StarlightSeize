@@ -52,8 +52,17 @@ function main() {
 
 
   // UFO
-  drawHouse(ctx,0)
-  drawSaucer(ctx)
+  // drawHouse(ctx,0)
+  // disappearHouse(ctx,0)
+  // drawSaucer(ctx)
+  let saucerDrawn = false;
+  canvas.addEventListener('click', function(event) {
+    if (!saucerDrawn) {
+      drawSaucer(ctx);
+      saucerDrawn = true; 
+  }
+  });
+
 }
 function updateCandidateDetails({rollNos,names}) {
   let isValidRollNo, isValidName, act, byHtml, n
@@ -124,8 +133,12 @@ function updateCandidateDetails({rollNos,names}) {
     .innerHTML = byHtml
 }
 
-function saveVisible() {
-	pass
+function saveCanvas() {
+  const link = document.createElement('a');
+  const {canvas, ctx, bb} = getCanvas(canvasSel)
+  link.download = `${slug(Experiment.rollNos)}-${slug(document.title)}-canvas.png`;
+  link.href = canvas.toDataURL()
+  link.click();  
 }
 function slug(s) {
   return s

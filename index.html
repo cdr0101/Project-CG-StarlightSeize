@@ -16,9 +16,10 @@
       padding: 3px 15px 12px 65px;
     }
        #myCanvas {
-         background-image: url('assets/bg3.png');
+         /* background-color: #080829; */
+         /* background-image: url('assets/bg3.png'); */
          background-size: 100% 100%;
-         
+         z-index: -2;
        }
        #clouds1 {
             position: absolute;
@@ -46,7 +47,32 @@
             z-index: 1; 
             opacity: 0.95;
         }
-       /* #house{
+
+        #stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 86%;
+  background: transparent;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkling 3s infinite;
+}
+
+@keyframes twinkling {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* #house{
               position: absolute;
     top: 185px;
     left: 184px;
@@ -54,14 +80,14 @@
     opacity: 0;
     transform: scale(1.04, 0.78);
         } */
-       #man{
+       /* #man{
             position: absolute;
             bottom: -25px;
             left: 350px; 
             z-index: 1;
             opacity: 0;
             transform: scale(0.1);
-       }
+       } */
      </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -80,23 +106,37 @@
           <!-- <img class="hidden" id="refImg"/> -->
           <canvas id="myCanvas"
                   width="500" height="25"
-                  class=" bg-slate-100 w-full h-full"></canvas>
-                  <!-- HOUSE LIGHTS OUT -->
-          <!-- <img src="assets/house_black.png" alt="house" id="house"> -->
-                  <!-- CLOUDS -->
+                 class=" bg-[url('assets/bg3.png')] w-full h-full">
+                  
+       </canvas>
+       <!-- class=" bg-gradient-to-b from-indigo-950 to-zinc-800 w-full h-full"> -->
+                 
           <div id="cloud-container" >
               <img src="assets/cloud.png" alt="Clouds" class="move" id="clouds1">
               <img src="assets/cloud3.png" alt="Clouds3" class="move" id="clouds3">
               <img src="assets/cloud3.png" alt="Clouds2" class="move" id="clouds2">
           </div>
-          <!-- MAN -->
-          <img src="assets/man.png" alt="man" id="man">
+          <!-- <div id="stars"></div>
+<svg id="grass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 50" class="absolute bottom-0 w-full z-10">
+  <path fill="#144b1c" d="M0,25 
+    C50,10 80,35 130,15 
+    C180,0 220,30 270,20 
+    C320,10 350,30 400,20 
+    C450,10 470,25 500,25 
+    L500,50 L0,50 Z" />
+</svg>
+<svg id="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="absolute top-0 right-0 z-10">
+       <circle cx="30" cy="40" r="10" fill="#F2F2F2" />
+       <circle cx="30" cy="40" r="8" fill="#C0C0C0" />
+     </svg>       -->
+          
+
           <div class="absolute top-0 right-0 text-center">
               </a>
             <a class="cursor-pointer block p-2
                       text-blue-300 hover:text-blue-500
                       active:text-blue-700"
-               href="javascript:saveVisible()"
+               href="javascript:saveCanvas()"
                title="Download canvas as image."
                ><ion-icon
                   name="save"
@@ -286,10 +326,6 @@
 
       </div>
     </div>
-<!-- 
-    <div class="hidden">
-      <img id="pattern" src="./assets/patterns/pattern-default.png"/>
-    </div> -->
     <h2 class="font-bold interacthead">Let's Interact!</h2>
 
     <p class="interactp"><br>1. Cloudy Convergence: Hover over the clouds and witness them sway and shift.
@@ -304,8 +340,6 @@
             src="./moveClouds.js"></script>
     <script type="text/javascript"
             src="./drawHouse.js"></script>
-    <!-- <script type="text/javascript"
-            src="./drawLLight.js"></script> -->
     <script src="drawLLight.js"></script>
     <script type="text/javascript"
             src="./drawSaucer.js"></script>
@@ -326,5 +360,19 @@
     <script type="text/javascript">
       main()
     </script>
+<!-- <script type="text/javascript">
+       const numStars = 200;
+     
+       const starsContainer = document.getElementById('stars');
+     
+       for (let i = 0; i < numStars; i++) {
+         const star = document.createElement('div');
+         star.classList.add('star');
+         star.style.top = Math.random() * 100 + '%';
+         star.style.left = Math.random() * 100 + '%';
+         star.style.animationDelay = Math.random() * 3 + 's';
+         starsContainer.appendChild(star);
+       }</script> -->
+          
   </body>
 </html>

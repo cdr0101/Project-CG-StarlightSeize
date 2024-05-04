@@ -35,8 +35,8 @@ function drawSaucer(ctx) {
         if (progress === 1) {
 			clearInterval(intervalId);
 			drawHouse(ctx)
-			// disappearHouse(ctx);
-			// drawHouse(ctx)
+			disappearHouse(ctx);
+			drawHouse(ctx)
             setTimeout(() => {
                 drawLLight(ctx);
             }, 1000); 

@@ -8,14 +8,18 @@
 //         ctx.restore();
 // }
 let houseVisible = true;
-
 function drawHouse(ctx, opacity = 1) {
-    // Check if house is visible
+	const cw = ctx.canvas.width;
+	const ch = ctx.canvas.height;
     if (!houseVisible) return;
 
     ctx.save();
     ctx.globalAlpha = opacity;
-    ctx.transform(3.9, 0, 0, 3, -15, 36);
+    // ctx.transform(3.9, 0, 0, 3, -15, 36);
+	const tx = cw / 2 - 615; 
+    const ty = ch / 2 - 240;
+
+    ctx.transform(3.2, 0, 0, 2.95, tx, ty);
     drawHouseRaw(ctx);
     ctx.restore();
     setTimeout(() => {
