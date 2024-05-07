@@ -56,7 +56,7 @@ function main() {
   // disappearHouse(ctx,0)
   // drawSaucer(ctx)
   let saucerDrawn = false;
-  canvas.addEventListener('dblclick', function(event) {
+  canvas.addEventListener('click', function(event) {
     if (!saucerDrawn) {
       drawSaucer(ctx);
       saucerDrawn = true; 
